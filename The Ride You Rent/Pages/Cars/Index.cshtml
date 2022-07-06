@@ -1,0 +1,66 @@
+﻿@page
+@model The_Ride_You_Rent.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarMake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarBodyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarkilometersTravelled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarServiceKilometers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarAvaliablityStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Car) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarMake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarBodyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarkilometersTravelled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarServiceKilometers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarAvaliablityStatus)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CarId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CarId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CarId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
